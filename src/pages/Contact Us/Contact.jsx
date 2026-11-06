@@ -1,7 +1,5 @@
-import Hero from "../../components/Hero section/Hero";
+import Hero from "../../components/Hero Section/Hero";
 import contact from "../../assets/contact.png";
-import { useContext } from "react";
-import { UserContext } from "../../context/UserContext";
 import ContactCard from "../../components/Cards/ContactCard";
 import Map from "../../assets/Map.svg";
 import Email from "../../assets/Email.svg";

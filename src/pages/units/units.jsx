@@ -1,4 +1,4 @@
-import Hero from "../../components/Hero section/Hero";
+import Hero from "../../components/Hero Section/Hero";
 import unites from "../../assets/unites.png";
 import searchIcon from "../../assets/searchIcon.svg";
 import { useState, useEffect } from "react";
@@ -20,19 +20,24 @@ function Units() {
   const [price, setPrice] = useState("");
   
 
-  const allUnits = async () => {
-    try {
-      const response = await api.get("/unit");
-
-      setUnits(response.data);
-    } catch (err) {
-      console.log(err);
-    } finally {
-      setLoading(false);
-    }
-  };
   useEffect(() => {
-    allUnits();
+    let ignore = false;
+
+    const fetchUnits = async () => {
+      try {
+        const response = await api.get("/unit");
+        if (!ignore) setUnits(response.data);
+      } catch (err) {
+        if (!ignore) console.log(err);
+      } finally {
+        if (!ignore) setLoading(false);
+      }
+    };
+
+    fetchUnits();
+    return () => {
+      ignore = true;
+    };
   }, []);
   
 

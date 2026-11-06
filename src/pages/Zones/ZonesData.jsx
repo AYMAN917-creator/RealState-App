@@ -8,18 +8,24 @@ function ZonesData() {
   const [zone, setZone] = useState("");
   const [loading, setLoading] = useState(true);
 
-  const getZoneData = async () => {
-    try {
-      const response = await api.get(`/zone/${id}`);
-      setZone(response.data);
-    } catch (err) {
-      console.log(err);
-    } finally {
-      setLoading(false);
-    }
-  };
   useEffect(() => {
-    getZoneData();
+    let cancelled = false;
+
+    api
+      .get(`/zone/${id}`)
+      .then((response) => {
+        if (!cancelled) setZone(response.data);
+      })
+      .catch((err) => {
+        if (!cancelled) console.log(err);
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false);
+      });
+
+    return () => {
+      cancelled = true;
+    };
   }, [id]);
   if (loading) {
     <h1>loading...</h1>;
