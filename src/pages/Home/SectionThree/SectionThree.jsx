@@ -42,20 +42,6 @@ function SectionThree() {
           <p>Sawary Family Villa </p>
         </div>
       </div>
-      <div className="flex w-full justify-center gap-2 py-2">
-        <a
-          href="#item1"
-          className="w-2 h-2 bg-gray-400 hover:bg-red-800 rounded-full"
-        ></a>
-        <a
-          href="#item2"
-          className="w-2 h-2 bg-gray-400 hover:bg-red-800 rounded-full"
-        ></a>
-        <a
-          href="#item3"
-          className="w-2 h-2 bg-gray-400 hover:bg-red-800 rounded-full"
-        ></a>
-      </div>
     </section>
   );
 }

@@ -1,7 +1,7 @@
 function FutureCards({ imgSrc, logo, logoTitle, logoHeader, btn }) {
   return (
     <div>
-      <div className="bg-[#ffffff] shadow-Card rounded-xl border border-[#EAEAEA] p-4 flex-col justify-between hover:shadow-xl transition-shadow duration-300">
+      <div className="bg-[#ffffff] shadow-Card rounded-xl border border-[#EAEAEA] p-4 flex-col justify-between">
         <div className="rounded-xl overflow-hidden mb-4">
           <img
             src={imgSrc}

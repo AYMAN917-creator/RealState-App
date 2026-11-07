@@ -51,9 +51,7 @@ function ContactCard() {
       </form>
       <div className="flex justify-center items-center px-7.5 mt-11 mb-7">
         <Buttons
-          btnStyle={
-            "w-full h-[49px] font-heading text-white hover:brightness-120 transition duration-200"
-          }
+          btnStyle={"w-full h-[49px] font-heading text-white"}
           btnTitle={"Send Message"}
         />
       </div>

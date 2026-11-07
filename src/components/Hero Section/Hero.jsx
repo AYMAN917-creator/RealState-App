@@ -21,7 +21,7 @@ const Hero = ({ bg, title, desc, btn, icons }) => {
           <Buttons
             btnTitle={btn}
             btnStyle={
-              "w-full max-w-64.5 text-base md:text-[20px] py-2 px-6 hover:brightness-150 transition duration-200 font-bold"
+              "w-full max-w-64.5 text-base md:text-[20px] py-2 px-6 font-bold"
             }
           />
         ) : (
