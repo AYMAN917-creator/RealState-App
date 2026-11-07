@@ -5,24 +5,18 @@ function DevelopersData() {
   const { id } = useParams();
   const [developer, setDeveloper] = useState("");
   const [loading, setLoading] = useState(true);
+  const getDeveloperData = async () => {
+    try {
+      const response = await api.get(`/developer/${id}`);
+      setDeveloper(response.data);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setLoading(false);
+    }
+  };
   useEffect(() => {
-    let active = true;
-
-    api
-      .get(`/developer/${id}`)
-      .then((response) => {
-        if (active) setDeveloper(response.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-      .finally(() => {
-        if (active) setLoading(false);
-      });
-
-    return () => {
-      active = false;
-    };
+    getDeveloperData();
   }, [id]);
 
   
@@ -44,7 +38,7 @@ function DevelopersData() {
 
         <section className="flex justify-between my-[69px]">
           <div>
-            <p className="font-lato font-bold text-[40px] text-[#1F3864]">
+            <p className="font-lato font-bold text-[40px] text-[#8E1616]">
               {developer.description_en}
             </p>
             <div className="flex gap-1">

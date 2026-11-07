@@ -48,7 +48,7 @@ function Cards({
         </div>
       </div>
       <div className="flex justify-between items-center mx-4 mt-[14px] mb-[21px]">
-        <p className="font-heading text-[22px] text-[#1F3864] font-semibold">
+        <p className="font-heading text-[22px] text-[#8E1616] font-semibold">
           {title}{" "}
         </p>
         <p className="text-[#A18E77] text-[26px] font-bold font-lato">

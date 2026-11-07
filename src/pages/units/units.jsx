@@ -1,4 +1,4 @@
-import Hero from "../../components/Hero Section/Hero";
+import Hero from "../../components/Hero section/Hero";
 import unites from "../../assets/unites.png";
 import searchIcon from "../../assets/searchIcon.svg";
 import { useState, useEffect } from "react";
@@ -20,24 +20,19 @@ function Units() {
   const [price, setPrice] = useState("");
   
 
+  const allUnits = async () => {
+    try {
+      const response = await api.get("/unit");
+
+      setUnits(response.data);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setLoading(false);
+    }
+  };
   useEffect(() => {
-    let ignore = false;
-
-    const fetchUnits = async () => {
-      try {
-        const response = await api.get("/unit");
-        if (!ignore) setUnits(response.data);
-      } catch (err) {
-        if (!ignore) console.log(err);
-      } finally {
-        if (!ignore) setLoading(false);
-      }
-    };
-
-    fetchUnits();
-    return () => {
-      ignore = true;
-    };
+    allUnits();
   }, []);
   
 
@@ -62,8 +57,8 @@ function Units() {
         }
         icons={true}
       />
-      <section className=" px-6 py-6 grid grid-cols-1 items-center lg:border lg:border-[#1F3864] lg:rounded-lg sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-7 lg:w-full mt-10 mb-15.25 ">
-        <div className="relative border border-[#1F3864] p-3 lg:p-0 rounded-lg lg:rounded-none lg:border-0 lg:border-l lg:border-[#1F3864]/40 lg:first:border-l-0 ">
+      <section className=" px-6 py-6 grid grid-cols-1 items-center lg:border lg:border-[#8E1616] lg:rounded-lg sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-7 lg:w-full mt-10 mb-15.25 ">
+        <div className="relative border border-[#8E1616] p-3 lg:p-0 rounded-lg lg:rounded-none lg:border-0 lg:border-l lg:border-[#8E1616]/40 lg:first:border-l-0 ">
           <input
             className="peer w-full min-w-0 pr-8 text-gray-400 font-lato font-bold outline-none truncate "
             type="search"
@@ -78,7 +73,7 @@ function Units() {
         </div>
         <select
           value={bedrooms}
-          className="p-3 outline-none text-[#BEBEBE] font-lato font-bold border border-[#1F3864] rounded-lg lg:rounded-none lg:border-0 lg:border-l lg:border-[#1F3864]/40 lg:first:border-l-0"
+          className="p-3 outline-none text-[#BEBEBE] font-lato font-bold border border-[#8E1616] rounded-lg lg:rounded-none lg:border-0 lg:border-l lg:border-[#8E1616]/40 lg:first:border-l-0"
           onChange={(e) => setBedrooms(e.target.value)}
         >
           <option value="" disabled hidden>
@@ -92,7 +87,7 @@ function Units() {
         </select>
         <select
           value={developer}
-          className="p-3 outline-none  text-[#BEBEBE] font-lato font-bold border border-[#1F3864] rounded-lg lg:rounded-none lg:border-0 lg:border-l lg:border-[#1F3864]/40 lg:first:border-l-0"
+          className="p-3 outline-none  text-[#BEBEBE] font-lato font-bold border border-[#8E1616] rounded-lg lg:rounded-none lg:border-0 lg:border-l lg:border-[#8E1616]/40 lg:first:border-l-0"
           onChange={(e) => setDeveloper(e.target.value)}
         >
           <option value="" disabled hidden>
@@ -106,7 +101,7 @@ function Units() {
         </select>
         <select
           value={zone}
-          className="p-3 outline-none  text-[#BEBEBE] font-lato font-bold border border-[#1F3864] rounded-lg lg:rounded-none lg:border-0 lg:border-l lg:border-[#1F3864]/40 lg:first:border-l-0"
+          className="p-3 outline-none  text-[#BEBEBE] font-lato font-bold border border-[#8E1616] rounded-lg lg:rounded-none lg:border-0 lg:border-l lg:border-[#8E1616]/40 lg:first:border-l-0"
           onChange={(e) => setZone(e.target.value)}
         >
           <option value="" disabled hidden>
@@ -118,7 +113,7 @@ function Units() {
         </select>
         <select
           value={projects}
-          className="p-3 outline-none  text-[#BEBEBE] font-lato font-bold border border-[#1F3864] rounded-lg lg:rounded-none lg:border-0 lg:border-l lg:border-[#1F3864]/40 lg:first:border-l-0"
+          className="p-3 outline-none  text-[#BEBEBE] font-lato font-bold border border-[#8E1616] rounded-lg lg:rounded-none lg:border-0 lg:border-l lg:border-[#8E1616]/40 lg:first:border-l-0"
           onChange={(e) => setProjects(e.target.value)}
         >
           <option value="" disabled hidden>
@@ -131,7 +126,7 @@ function Units() {
         </select>
         <select
           value={status}
-          className="p-3 outline-none  text-[#BEBEBE] font-lato font-bold border border-[#1F3864] rounded-lg lg:rounded-none lg:border-0 lg:border-l lg:border-[#1F3864]/40 lg:first:border-l-0"
+          className="p-3 outline-none  text-[#BEBEBE] font-lato font-bold border border-[#8E1616] rounded-lg lg:rounded-none lg:border-0 lg:border-l lg:border-[#8E1616]/40 lg:first:border-l-0"
           onChange={(e) => setStatus(e.target.value)}
         >
           <option value="" disabled hidden>
@@ -143,7 +138,7 @@ function Units() {
         </select>
         <select
           value={price}
-          className="p-3 outline-none  text-[#BEBEBE] font-lato font-bold border border-[#1F3864] rounded-lg lg:rounded-none lg:border-0 lg:border-l lg:border-[#1F3864]/40 lg:first:border-l-0"
+          className="p-3 outline-none  text-[#BEBEBE] font-lato font-bold border border-[#8E1616] rounded-lg lg:rounded-none lg:border-0 lg:border-l lg:border-[#8E1616]/40 lg:first:border-l-0"
           onChange={(e) => setPrice(e.target.value)}
         >
           <option value="" disabled hidden>
@@ -164,7 +159,7 @@ function Units() {
         </select>
       </section>
       <div className=" flex justify-center items-center">
-        <button className="text-white bg-linear-to-r from-[#1F3864] to-[#3D5A80] w-150 h-10 rounded-xl cursor-pointer font-lato font-bold text-lg flex justify-center items-center gap-2 my-5">
+        <button className="text-white bg-linear-to-r from-[#8E1616] to-[#C34B4B] w-150 h-10 rounded-xl cursor-pointer font-lato font-bold text-lg flex justify-center items-center gap-2 my-5">
           Search
         </button>
       </div>

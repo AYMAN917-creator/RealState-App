@@ -1,5 +1,7 @@
-import Hero from "../../components/Hero Section/Hero";
+import Hero from "../../components/Hero section/Hero";
 import contact from "../../assets/contact.png";
+import { useContext } from "react";
+import { UserContext } from "../../context/UserContext";
 import ContactCard from "../../components/Cards/ContactCard";
 import Map from "../../assets/Map.svg";
 import Email from "../../assets/Email.svg";
@@ -37,28 +39,28 @@ function Contact() {
             <div className="flex justify-start gap-3 p-2 ">
               {" "}
               <img src={Map} />{" "}
-              <p className="text-[#1F3864] text-[20px] font-lato font-medium">
+              <p className="text-[#8E1616] text-[20px] font-lato font-medium">
                 Minusio, Lake Maggiore, Switzerland — ref. LOC1771
               </p>
             </div>
             <div className="flex justify-start gap-3 p-2">
               {" "}
               <img src={Email} />{" "}
-              <p className="text-[#1F3864] text-[20px] font-lato font-medium">
+              <p className="text-[#8E1616] text-[20px] font-lato font-medium">
                 Grand .Atlas.Support@gmail.com
               </p>
             </div>
             <div className="flex justify-start gap-4 p-2">
               {" "}
               <img src={Mobile} />{" "}
-              <p className="text-[#1F3864] text-[20px] font-lato font-medium">
+              <p className="text-[#8E1616] text-[20px] font-lato font-medium">
                 01247859622
               </p>
             </div>
             <div className="flex justify-start gap-3 p-2">
               {" "}
               <img src={Telephone} />{" "}
-              <p className="text-[#1F3864] text-[20px] font-lato font-medium">
+              <p className="text-[#8E1616] text-[20px] font-lato font-medium">
                 035987124
               </p>
             </div>
@@ -70,19 +72,19 @@ function Contact() {
             <div className="flex gap-2">
               <img
                 src={facebook}
-                className="color-[#1F3864] border-3 border-[#1F3864] rounded-full p-1 cursor-pointer hover:scale-110 transition duration-150"
+                className="color-[#8E1616] border-3 border-[#8E1616] rounded-full p-1 cursor-pointer hover:scale-110 transition duration-150"
               />
               <img
                 src={x}
-                className="color-[#1F3864] border-3 border-[#1F3864] rounded-full p-2 cursor-pointer hover:scale-110 transition duration-150"
+                className="color-[#8E1616] border-3 border-[#8E1616] rounded-full p-2 cursor-pointer hover:scale-110 transition duration-150"
               />
               <img
                 src={instagram}
-                className="color-[#1F3864] border-3 border-[#1F3864] rounded-full p-1 cursor-pointer hover:scale-110 transition duration-150"
+                className="color-[#8E1616] border-3 border-[#8E1616] rounded-full p-1 cursor-pointer hover:scale-110 transition duration-150"
               />
               <img
                 src={tiktok}
-                className="color-[#1F3864] border-3 border-[#1F3864] rounded-full p-2 cursor-pointer hover:scale-110 transition duration-150"
+                className="color-[#8E1616] border-3 border-[#8E1616] rounded-full p-2 cursor-pointer hover:scale-110 transition duration-150"
               />
             </div>
           </div>
@@ -92,19 +94,19 @@ function Contact() {
             </h3>
             <div className="flex gap-8.75">
               <div>
-                <p className="text-[#1F3864] font-lato font-medium text-[20px] mb-2.75">
+                <p className="text-[#8E1616] font-lato font-medium text-[20px] mb-2.75">
                   Saturday :
                 </p>
-                <p className="text-[#1F3864] font-lato font-medium text-[20px] mb-2.75">
+                <p className="text-[#8E1616] font-lato font-medium text-[20px] mb-2.75">
                   Sunday :
                 </p>
-                <p className="text-[#1F3864] font-lato font-medium text-[20px] mb-2.75">
+                <p className="text-[#8E1616] font-lato font-medium text-[20px] mb-2.75">
                   Monday :
                 </p>
-                <p className="text-[#1F3864] font-lato font-medium text-[20px] mb-2.75">
+                <p className="text-[#8E1616] font-lato font-medium text-[20px] mb-2.75">
                   Tuesday :
                 </p>
-                <p className="text-[#1F3864] font-lato font-medium text-[20px]">
+                <p className="text-[#8E1616] font-lato font-medium text-[20px]">
                   Wednesday :
                 </p>
               </div>

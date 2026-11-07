@@ -12,13 +12,14 @@ import { Provider } from "react-redux";
 import { store } from "./redux/store.js";
 
 createRoot(document.getElementById("root")).render(
-    <BrowserRouter>
-        <StrictMode>
-            <UserProvider>
-                <Provider store={store}>
-                    <App />
-                </Provider>
-            </UserProvider>
-        </StrictMode>
-    </BrowserRouter>,
+  <BrowserRouter>
+    <StrictMode>
+      <UserProvider>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </UserProvider>
+    </StrictMode>
+    ,
+  </BrowserRouter>,
 );

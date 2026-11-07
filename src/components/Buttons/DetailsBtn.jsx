@@ -3,7 +3,7 @@ function DetailsBtn({ onClick }) {
     <div>
       <button
         onClick={onClick}
-        className="w-full py-2 font-lato text-[#1F3864] border border-[#1F3864] rounded-lg hover:text-[#1F3864] hover:border-[#1F3864] cursor-pointer"
+        className="w-full py-2 font-lato text-[#8E1616] border border-[#8E1616] rounded-lg hover:text-red-700 hover:border-red-600 cursor-pointer"
       >
         View Details
       </button>

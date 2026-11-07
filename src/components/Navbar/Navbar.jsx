@@ -25,14 +25,7 @@ export default function Navbar() {
           <NavLink
             key={link.name}
             to={link.path}
-            end={link.path === "/"}
-            className={({ isActive }) =>
-              `text-base lg:text-lg font-lato font-bold transition-colors hover:text-[#1F3864] hover:underline hover:underline-offset-8 ${
-                isActive
-                  ? "text-[#1F3864] underline underline-offset-8"
-                  : "text-[#847D7D]"
-              }`
-            }
+            className="text-base lg:text-lg font-lato font-bold text-[#847D7D] transition-colors hover:text-[#8E1616] hover:underline hover:underline-offset-8"
           >
             {link.name}
           </NavLink>
@@ -82,15 +75,8 @@ export default function Navbar() {
           <NavLink
             key={link.name}
             to={link.path}
-            end={link.path === "/"}
             onClick={() => setMenu(false)}
-            className={({ isActive }) =>
-              `text-base lg:text-lg font-lato font-bold transition-colors hover:text-[#1F3864] hover:underline hover:underline-offset-8 ${
-                isActive
-                  ? "text-[#1F3864] underline underline-offset-8"
-                  : "text-[#847D7D]"
-              }`
-            }
+            className="text-base lg:text-lg font-lato font-bold text-[#847D7D] transition-colors hover:text-[#8E1616] hover:underline hover:underline-offset-8"
           >
             {link.name}
           </NavLink>

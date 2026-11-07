@@ -8,28 +8,18 @@ function UniteDetails() {
   const [unit, setUnit] = useState("");
   const [loading, setLoading] = useState(true);
   const [isActive, setIsActive] = useState(0);
+  const getUnitDetail = async () => {
+    try {
+      const response = await api.get(`/unit/${id}`);
+      setUnit(response.data);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
   useEffect(() => {
-    let isCurrent = true;
-
-    const getUnitDetail = async () => {
-      try {
-        const response = await api.get(`/unit/${id}`);
-        if (isCurrent) {
-          setUnit(response.data);
-        }
-      } catch (error) {
-        console.log(error);
-      } finally {
-        if (isCurrent) {
-          setLoading(false);
-        }
-      }
-    };
-
     getUnitDetail();
-    return () => {
-      isCurrent = false;
-    };
   }, [id]);
 
 
@@ -67,7 +57,7 @@ function UniteDetails() {
       </section>
       <section className="flex justify-between my-[69px]">
         <div>
-          <p className="font-lato font-bold text-[40px] text-[#1F3864]">
+          <p className="font-lato font-bold text-[40px] text-[#8E1616]">
             {unit.title_en}
           </p>
           <div className="flex gap-1">
@@ -130,7 +120,7 @@ function UniteDetails() {
             <button className="w-[372px] py-[16.5px] bg-[#02aa02]  text-[#EEEEEE] rounded-xl cursor-pointer cursor-pointe font-lato font-bold text-[20px] mr-[22px]">
               Contact via WhatsApp
             </button>
-            <button className="w-[372px] py-[16.5px] border border-[#1F3864] text-[#1F3864] rounded-xl cursor-pointe font-lato font-bold text-[20px]">
+            <button className="w-[372px] py-[16.5px] border border-[#8E1616] text-[#8E1616] rounded-xl cursor-pointe font-lato font-bold text-[20px]">
               Call
             </button>
           </div>

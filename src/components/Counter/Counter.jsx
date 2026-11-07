@@ -1,10 +1,8 @@
 import { increment, decrement, reset } from "../../redux/counterSlice";
 import { useSelector, useDispatch } from "react-redux";
-
 function Counter() {
   const count = useSelector((state) => state.likes.like);
   const dispatch = useDispatch();
-
   return (
     <div>
       <h2 className="text-2xl">likes: {count}</h2>
@@ -12,7 +10,7 @@ function Counter() {
         onClick={() => dispatch(increment())}
         className="border border-b-blue-700 mx-2 px-2"
       >
-        Like
+        like
       </button>
       <button
         onClick={() => dispatch(decrement())}

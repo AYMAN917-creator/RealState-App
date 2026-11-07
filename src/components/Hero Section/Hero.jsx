@@ -2,8 +2,7 @@ import instagram from "../../assets/isnstagram.svg";
 import tiktok from "../../assets/tiktok.svg";
 import x from "../../assets/x.svg";
 import fb from "../../assets/fb.svg";
-import Buttons from "../Buttons/buttons";
-
+import Buttons from "../Buttons/Buttons";
 const Hero = ({ bg, title, desc, btn, icons }) => {
   return (
     <>
@@ -21,23 +20,35 @@ const Hero = ({ bg, title, desc, btn, icons }) => {
         {btn ? (
           <Buttons
             btnTitle={btn}
-            btnStyle="w-full max-w-64.5 text-base md:text-[20px] py-2 px-6 font-bold"
+            btnStyle={
+              "w-full max-w-64.5 text-base md:text-[20px] py-2 px-6 hover:brightness-150 transition duration-200 font-bold"
+            }
           />
         ) : (
           ""
         )}
       </div>
-
       {icons && (
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-row gap-4 md:bottom-30 md:left-0 md:translate-x-0 md:px-9 md:flex-col md:gap-6 cursor-pointer">
-          <img src={fb} alt="Facebook" className="border-white border-[3px] rounded-full size-10 md:size-12 p-2 hover:scale-120 transition duration-200" />
-          <img src={instagram} alt="Instagram" className="border-white border-[3px] rounded-full size-10 md:size-12 p-2 hover:scale-120 transition duration-200" />
-          <img src={x} alt="X" className="border-white border-[3px] rounded-full size-10 md:size-12 p-2 hover:scale-120 transition duration-200" />
-          <img src={tiktok} alt="TikTok" className="border-white border-[3px] rounded-full size-10 md:size-12 p-2 hover:scale-120 transition duration-200" />
+          <img
+            src={fb}
+            className="border-white border-[3px] rounded-full size-10 md:size-12 p-2 hover:scale-120 transition duration-200"
+          />
+          <img
+            src={instagram}
+            className="border-white border-[3px] rounded-full size-10 md:size-12 p-2 hover:scale-120 transition duration-200"
+          />
+          <img
+            src={x}
+            className="border-white border-[3px] rounded-full size-10 md:size-12 p-2 hover:scale-120 transition duration-200"
+          />
+          <img
+            src={tiktok}
+            className="border-white border-[3px] rounded-full size-10 md:size-12 p-2 hover:scale-120 transition duration-200"
+          />
         </div>
       )}
     </>
   );
 };
-
 export default Hero;

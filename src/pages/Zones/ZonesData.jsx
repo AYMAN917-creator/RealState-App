@@ -8,24 +8,18 @@ function ZonesData() {
   const [zone, setZone] = useState("");
   const [loading, setLoading] = useState(true);
 
+  const getZoneData = async () => {
+    try {
+      const response = await api.get(`/zone/${id}`);
+      setZone(response.data);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setLoading(false);
+    }
+  };
   useEffect(() => {
-    let cancelled = false;
-
-    api
-      .get(`/zone/${id}`)
-      .then((response) => {
-        if (!cancelled) setZone(response.data);
-      })
-      .catch((err) => {
-        if (!cancelled) console.log(err);
-      })
-      .finally(() => {
-        if (!cancelled) setLoading(false);
-      });
-
-    return () => {
-      cancelled = true;
-    };
+    getZoneData();
   }, [id]);
   if (loading) {
     <h1>loading...</h1>;
@@ -41,7 +35,7 @@ function ZonesData() {
 
         <section className="flex justify-between my-[69px]">
           <div>
-            <p className="font-lato font-bold text-[40px] text-[#1F3864]">
+            <p className="font-lato font-bold text-[40px] text-[#8E1616]">
               {zone.description_en}
             </p>
             <div className="flex gap-1">

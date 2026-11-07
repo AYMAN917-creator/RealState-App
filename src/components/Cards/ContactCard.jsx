@@ -15,7 +15,7 @@ function ContactCard() {
           <input
             id="name"
             type="text"
-            className="border border-[#CEC7C7] bg-[#F7F7F7] rounded-lg w-full h-[58px] outline-none focus:border-[#1F3864]"
+            className="border border-[#CEC7C7] bg-[#F7F7F7] rounded-lg w-full h-[58px] outline-none focus:border-[#8E1616]"
           />
         </div>
         <div className="flex flex-col mb-[16px]">
@@ -25,7 +25,7 @@ function ContactCard() {
           <input
             id="email"
             type="email"
-            className="border border-[#CEC7C7] bg-[#F7F7F7] rounded-lg w-full h-[58px] outline-none focus:border-[#1F3864]"
+            className="border border-[#CEC7C7] bg-[#F7F7F7] rounded-lg w-full h-[58px] outline-none focus:border-[#8E1616]"
           />
         </div>
         <div className="flex flex-col mb-[16px]">
@@ -35,7 +35,7 @@ function ContactCard() {
           <input
             id="phone"
             type="number"
-            className="border border-[#CEC7C7] bg-[#F7F7F7] rounded-lg w-full h-[58px] outline-none focus:border-[#1F3864]"
+            className="border border-[#CEC7C7] bg-[#F7F7F7] rounded-lg w-full h-[58px] outline-none focus:border-[#8E1616]"
           />
         </div>
         <div className="flex flex-col">
@@ -45,13 +45,15 @@ function ContactCard() {
           <textarea
             id="message"
             rows="5"
-            className="border border-[#CEC7C7] bg-[#F7F7F7] rounded-lg w-full h-auto outline-none focus:border-[#1F3864]"
+            className="border border-[#CEC7C7] bg-[#F7F7F7] rounded-lg w-full h-auto outline-none focus:border-[#8E1616]"
           />
         </div>
       </form>
       <div className="flex justify-center items-center px-7.5 mt-11 mb-7">
         <Buttons
-          btnStyle={"w-full h-[49px] font-heading text-white"}
+          btnStyle={
+            "w-full h-[49px] font-heading text-white hover:brightness-120 transition duration-200"
+          }
           btnTitle={"Send Message"}
         />
       </div>

@@ -35,8 +35,8 @@ function Footer() {
     <div className="flex flex-col items-center gap-8 ">
       <h1 className="text-[#0A142F] font-semibold pt-6 ">Get In Touch</h1>
       <div className="flex items-center">
-      <input type="text"name="product updates" placeholder="Get Product Updates"className="border border-[#1F3864] border-[1px] solid h-11.5 rounded-l-md py-[15px] px-[15px]"/>
-      <button className="bg-[#1F3864] w-12.5 h-11.5 rounded-r-md flex justify-center items-center"><img src={arrow}/></button>
+      <input type="text"name="product updates" placeholder="Get Product Updates"className="border border-[#8E1616] border-[1px] solid h-11.5 rounded-l-md py-[15px] px-[15px]"/>
+      <button className="bg-[#8E1616] w-12.5 h-11.5 rounded-r-md flex justify-center items-center"><img src={arrow}/></button>
       </div>
       <div className="flex flex-row gap-3.75">
         <img src={linkedin}/>
