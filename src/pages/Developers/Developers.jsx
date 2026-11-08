@@ -1,4 +1,4 @@
-import Hero from "../../components/Hero section/Hero";
+import Hero from "../../components/HeroSection/Hero.jsx";
 import dev from "../../assets/dev.png";
 import api from "../utils/api";
 import { useEffect, useState } from "react";
@@ -11,30 +11,24 @@ function Developers() {
   const navigate = useNavigate();
   const [developers, setDevelopers] = useState([]);
   const [loading, setLoading] = useState(true);
+  const getDeveloper = async () => {
+    try {
+      const response = await api.get("/developer");
+      setDevelopers(response.data);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setLoading(false);
+    }
+  };
   useEffect(() => {
-    let cancelled = false;
-
-    api
-      .get("/developer")
-      .then((response) => {
-        if (!cancelled) setDevelopers(response.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-      .finally(() => {
-        if (!cancelled) setLoading(false);
-      });
-
-    return () => {
-      cancelled = true;
-    };
+    getDeveloper();
   }, []);
   if (loading) {
-    return <h1>loading...</h1>;
+    <h1>loading...</h1>;
   }
   if (!developers) {
-    return <h1>developer Not Found</h1>;
+    <h1>developer Not Found</h1>;
   }
   return (
     <div>

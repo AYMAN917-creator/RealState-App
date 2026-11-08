@@ -8,30 +8,18 @@ function UniteDetails() {
   const [unit, setUnit] = useState("");
   const [loading, setLoading] = useState(true);
   const [isActive, setIsActive] = useState(0);
+  const getUnitDetail = async () => {
+    try {
+      const response = await api.get(`/unit/${id}`);
+      setUnit(response.data);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
   useEffect(() => {
-    let isCurrent = true;
-
-    api
-      .get(`/unit/${id}`)
-      .then((response) => {
-        if (isCurrent) {
-          setUnit(response.data);
-        }
-      })
-      .catch((error) => {
-        if (isCurrent) {
-          console.log(error);
-        }
-      })
-      .finally(() => {
-        if (isCurrent) {
-          setLoading(false);
-        }
-      });
-
-    return () => {
-      isCurrent = false;
-    };
+    getUnitDetail();
   }, [id]);
 
 

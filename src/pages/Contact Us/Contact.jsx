@@ -1,4 +1,4 @@
-import Hero from "../../components/Hero section/Hero";
+import Hero from "../../components/HeroSection/Hero.jsx";
 import contact from "../../assets/contact.png";
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";

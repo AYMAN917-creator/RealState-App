@@ -1,6 +1,8 @@
+import DetailsBtn from "../Buttons/DetailsBtn";
 import BedroomIcon from "../../assets/BedroomIcon.svg";
 import BathroomIcon from "../../assets/BathroomIcon.svg";
 import SizeIcon from "../../assets/SizeIcon.svg";
+import { useNavigate } from "react-router-dom";
 
 function Cards({
   cardImg,
@@ -13,6 +15,8 @@ function Cards({
   status,
   btn,
 }) {
+  const navigate = useNavigate();
+
   return (
     <div className="max-w-110.5 h-auto border border-[#EAEAEA] rounded-2xl shadow-Card flex-col justify-between">
       <div className="relative">

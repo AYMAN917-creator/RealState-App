@@ -1,5 +1,5 @@
 import HeroImg from '../../assets/HeroImg.png'
-import Hero from '../../components/Hero section/Hero'
+import Hero from '../../components/HeroSection/Hero.jsx'
 import SectionOne from './SectionOne/SectionOne'
 import SectionTwo from './SectionTwo/SectionTwo'
 import SectionThree from './SectionThree/SectionThree'

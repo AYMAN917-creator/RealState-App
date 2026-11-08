@@ -8,30 +8,24 @@ function ZonesData() {
   const [zone, setZone] = useState("");
   const [loading, setLoading] = useState(true);
 
+  const getZoneData = async () => {
+    try {
+      const response = await api.get(`/zone/${id}`);
+      setZone(response.data);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setLoading(false);
+    }
+  };
   useEffect(() => {
-    let active = true;
-
-    const fetchZoneData = async () => {
-      try {
-        const response = await api.get(`/zone/${id}`);
-        if (active) setZone(response.data);
-      } catch (err) {
-        console.log(err);
-      } finally {
-        if (active) setLoading(false);
-      }
-    };
-
-    fetchZoneData();
-    return () => {
-      active = false;
-    };
+    getZoneData();
   }, [id]);
   if (loading) {
-    return <h1>loading...</h1>;
+    <h1>loading...</h1>;
   }
   if (!zone) {
-    return <h1>Unit Not Found</h1>;
+    <h1>Unit Not Found</h1>;
   }
 
   return (

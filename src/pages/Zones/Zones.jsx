@@ -1,4 +1,4 @@
-import Hero from "../../components/Hero section/Hero";
+import Hero from "../../components/HeroSection/Hero.jsx";
 import mainzone from "../../assets/mainzone.png";
 import api from "../utils/api";
 import { useState, useEffect } from "react";
@@ -7,22 +7,19 @@ function Zones() {
   const navigate = useNavigate();
   const [zones, setZones] = useState([]);
   const [loading, setLoading] = useState(true);
+  const getZones = async () => {
+    try {
+      const response = await api.get("/zone");
+      setZones(response.data);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
-    let active = true;
-
-    api
-      .get("/zone")
-      .then((response) => {
-        if (active) setZones(response.data);
-      })
-      .catch((err) => console.log(err))
-      .finally(() => {
-        if (active) setLoading(false);
-      });
-
-    return () => {
-      active = false;
-    };
+    getZones();
   }, []);
 
   return (
