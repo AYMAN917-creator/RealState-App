@@ -11,22 +11,18 @@ function Developers() {
   const navigate = useNavigate();
   const [developers, setDevelopers] = useState([]);
   const [loading, setLoading] = useState(true);
+  const getDeveloper = async () => {
+    try {
+      const response = await api.get("/developer");
+      setDevelopers(response.data);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setLoading(false);
+    }
+  };
   useEffect(() => {
-    let active = true;
-
-    api
-      .get("/developer")
-      .then((response) => {
-        if (active) setDevelopers(response.data);
-      })
-      .catch((err) => console.log(err))
-      .finally(() => {
-        if (active) setLoading(false);
-      });
-
-    return () => {
-      active = false;
-    };
+    getDeveloper();
   }, []);
   if (loading) {
     <h1>loading...</h1>;

@@ -1,5 +1,7 @@
 import Title from "../../../components/Title/Title";
 import About from "../../../assets/About.png";
+import Buttons from "../../../components/Buttons/Buttons";
+import arrow from "../../../assets/arrow.svg";
 
 function SectionTwo() {
   return (
@@ -28,6 +30,13 @@ function SectionTwo() {
             don't just find you a home; we secure your peace of mind through a
             veil of absolute professional confidentiality
           </p>
+          <Buttons
+            btnTitle={"Know More"}
+            btnStyle={
+              "font-lato text-[#ffffff] py-3 pl-[68px] pr-[85px] flex items-center gap-2 whitespace-nowrap"
+            }
+            icon={arrow}
+          />
         </div>
       </div>
     </section>
