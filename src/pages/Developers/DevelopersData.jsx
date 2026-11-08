@@ -5,18 +5,24 @@ function DevelopersData() {
   const { id } = useParams();
   const [developer, setDeveloper] = useState("");
   const [loading, setLoading] = useState(true);
-  const getDeveloperData = async () => {
-    try {
-      const response = await api.get(`/developer/${id}`);
-      setDeveloper(response.data);
-    } catch (err) {
-      console.log(err);
-    } finally {
-      setLoading(false);
-    }
-  };
   useEffect(() => {
+    let active = true;
+
+    const getDeveloperData = async () => {
+      try {
+        const response = await api.get(`/developer/${id}`);
+        if (active) setDeveloper(response.data);
+      } catch (err) {
+        console.log(err);
+      } finally {
+        if (active) setLoading(false);
+      }
+    };
+
     getDeveloperData();
+    return () => {
+      active = false;
+    };
   }, [id]);
 
   
