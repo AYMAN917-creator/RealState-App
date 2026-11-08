@@ -7,19 +7,22 @@ function Zones() {
   const navigate = useNavigate();
   const [zones, setZones] = useState([]);
   const [loading, setLoading] = useState(true);
-  const getZones = async () => {
-    try {
-      const response = await api.get("/zone");
-      setZones(response.data);
-    } catch (err) {
-      console.log(err);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
-    getZones();
+    let active = true;
+
+    api
+      .get("/zone")
+      .then((response) => {
+        if (active) setZones(response.data);
+      })
+      .catch((err) => console.log(err))
+      .finally(() => {
+        if (active) setLoading(false);
+      });
+
+    return () => {
+      active = false;
+    };
   }, []);
 
   return (

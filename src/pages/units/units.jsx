@@ -20,19 +20,24 @@ function Units() {
   const [price, setPrice] = useState("");
   
 
-  const allUnits = async () => {
-    try {
-      const response = await api.get("/unit");
-
-      setUnits(response.data);
-    } catch (err) {
-      console.log(err);
-    } finally {
-      setLoading(false);
-    }
-  };
   useEffect(() => {
-    allUnits();
+    let active = true;
+
+    const fetchUnits = async () => {
+      try {
+        const response = await api.get("/unit");
+        if (active) setUnits(response.data);
+      } catch (err) {
+        console.log(err);
+      } finally {
+        if (active) setLoading(false);
+      }
+    };
+
+    fetchUnits();
+    return () => {
+      active = false;
+    };
   }, []);
   
 
